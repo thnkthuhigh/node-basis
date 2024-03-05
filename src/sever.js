@@ -10,7 +10,7 @@ const app = express(); //app express
 const port = process.env.PORT || 8000;
 const hostname = process.env.HOST_NAME || "localhost";
 
-// cònig templete engine
+// config  engine
 configViewEngine(app);
 
 app.use("/", webRouter);
