@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
     <title>Home</title>
   </head>
   <body>
@@ -29,7 +29,7 @@
     </style>
     <div class="topnav">
       <a class="active" href="/">Home</a>
-      <a href="/create">News</a>
+      <a href="/create">Create</a>
     </div>
     <div class="table-container">
       <div style="padding: 15px; text-align: center; font-size: 20px">
@@ -46,41 +46,20 @@
 
         <% listUsers.forEach(function(users, index) { %>
         <tr>
-          <td><%=index+1 %></td>
+          <td><%=users.id %></td>
           <td><%=users.email %></td>
           <td><%=users.name %></td>
           <td><%=users.city %></td>
           <td>
-            <button>Edit</button>
-            <button>Delete</button>
+            <a href="/edit/<%=users.id %>"">Edit</a>
+           <form action="/delete-user/<%=users.id %>" method="post">
+             <button>Delete</button>
+            </form>
           </td>
         </tr>
         <% }); %>
       </table>
     </div>
 
-    <!-- <div>
-      <div class="form-add-new">
-        <form action="/create-user" method="GET">
-          <fieldset>
-            <legend>Add new user</legend>
-
-            <div class="input-group">
-              <label for="">Email: </label>
-              <input type="text" name="email" />
-            </div>
-            <div class="input-group">
-              <label for="">Name: </label>
-              <input type="text" name="name" />
-            </div>
-            <div class="input-group">
-              <label for="">City: </label>
-              <input type="text" name="city" />
-            </div>
-            <button>Save</button>
-          </fieldset>
-        </form>
-      </div>
-    </div> -->
   </body>
 </html>
